@@ -1,0 +1,122 @@
+body {
+  font-family: "Bai Jamjuree", sans-serif;
+  margin: 0;
+}
+h2 {
+  font-family: "Bai Jamjuree", sans-serif;
+  color: #093f68;
+  font-size: 12px !important;
+}
+.search-field {
+  background-color: #a8efff;
+  padding: 10px;
+  border-bottom: #093f68 2px solid;
+}
+#search {
+  display: inline-block;
+  margin-left: 10%;
+  width: 30%;
+  height: 45px;
+  border: 2px solid #093f68;
+  border-radius: 10px;
+  padding-left: 20px;
+}
+#search:hover {
+  cursor: text;
+}
+#search::placeholder {
+  color: #093f68;
+  font-family: "Bai Jamjuree", sans-serif;
+}
+.search-icon {
+  position: absolute;
+  left: 37.5%;
+  top: 24px;
+  color: #093f68;
+  opacity: 80%;
+}
+.search-icon:hover {
+  cursor: pointer;
+}
+#search-submit {
+  display: inline-block;
+  margin-left: 10px;
+  border: 2px solid #093f68;
+  border-radius: 10px;
+  height: 45px;
+  width: 94px;
+  color: #093f68;
+  background-color: #ffffff;
+  font-family: "Bai Jamjuree", sans-serif;
+  transition: all 200ms ease-in-out;
+}
+#search-submit:hover {
+  color: #ffffff;
+  background-color: #093f68;
+}
+.main {
+  margin: 40px auto;
+  width: 80%;
+  height: 320px;
+  background-image: url("./images/Sun.svg");
+  background-repeat: no-repeat;
+  background-position: right center;
+}
+.main-forecast {
+  height: 100%;
+  width: 50%;
+  border: 2px solid #093f68;
+  border-radius: 10px;
+  font-family: "Bai Jamjuree", sans-serif;
+  font-size: 25px;
+}
+.main-forecast div {
+  text-align: center;
+  color: #093f68;
+  margin-top: 15px;
+}
+.current-city {
+  font-family: "Fredoka One", cursive;
+  font-size: 35px;
+}
+.temperature {
+  display: flex;
+  justify-content: center;
+}
+.temperature-value {
+  display: inline-block;
+}
+.temperature-degrees {
+  display: inline-block;
+}
+.convert-temperature {
+  display: inline-block;
+  width: 18%;
+  font-weight: bold;
+  margin-left: 15px;
+  margin-top: 15px;
+}
+.cards-container {
+  width: 80% !important;
+  padding: 0 !important;
+  margin-bottom: 100px !important;
+}
+.day-card {
+  height: 240px;
+  border: #093f68 2px solid;
+  border-radius: 10px;
+}
+.card-img {
+  width: 80%;
+  margin: 0 auto;
+}
+.day-card div {
+  text-align: center;
+  color: #093f68;
+}
+.day {
+  font-family: "Fredoka One", cursive;
+  font-size: 20px;
+  text-align: center;
+  color: #093f68;
+}
