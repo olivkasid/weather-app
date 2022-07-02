@@ -99,7 +99,7 @@ h2 {
 .cards-container {
   width: 80% !important;
   padding: 0 !important;
-  margin-bottom: 100px !important;
+  margin-bottom: 50px !important;
 }
 .day-card {
   height: 240px;
@@ -119,4 +119,10 @@ h2 {
   font-size: 20px;
   text-align: center;
   color: #093f68;
+}
+.git-hub {
+  display: inline-block;
+  margin-left: 10%;
+  color: #093f68;
+  text-decoration: none;
 }
