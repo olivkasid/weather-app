@@ -31,17 +31,24 @@
       </div>
     </form>
     <div class="main">
-      <h2></h2>
       <div class="main-forecast">
-        <div class="current-city">Milan, Italy</div>
-        <div class="current-date"></div>
+        <div class="current-city">Milan</div>
+        <div class="current-date">Last updated at: <span id="date"></span></div>
         <div class="temperature">
-          <div class="temperature-value">20</div>
+          <div class="temperature-value"></div>
           <div class="temperature-degrees">°C</div>
           <a href="#" class="convert-temperature">Convert</a>
         </div>
-        <div class="current-weather">Sunny</div>
-        <div class="current-precipitation">Precipitation: 13%</div>
+        <div id="current-weather"></div>
+        <div class="current-humidity">
+          Humidity: <span id="current-humidity"></span>%
+        </div>
+        <div class="current-wind">
+          Wind: <span id="current-wind"></span> km/h
+        </div>
+      </div>
+      <div class="icon">
+        <img src="./images/Sun.svg" alt="Sun" id="main-icon" />
       </div>
     </div>
 

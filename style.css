@@ -14,11 +14,11 @@ h2 {
 }
 #search {
   display: inline-block;
-  margin-left: 10%;
+  margin-left: 19.5%;
   width: 30%;
   height: 45px;
   border: 2px solid #093f68;
-  border-radius: 10px;
+  border-radius: 25px;
   padding-left: 20px;
 }
 #search:hover {
@@ -30,7 +30,7 @@ h2 {
 }
 .search-icon {
   position: absolute;
-  left: 37.5%;
+  left: 47.5%;
   top: 24px;
   color: #093f68;
   opacity: 80%;
@@ -55,46 +55,61 @@ h2 {
   background-color: #093f68;
 }
 .main {
-  margin: 40px auto;
-  width: 80%;
-  height: 320px;
-  background-image: url("./images/Sun.svg");
+  margin: 15px auto;
+  width: 60%;
+  height: 280px;
+  background-size: 300px;
   background-repeat: no-repeat;
   background-position: right center;
 }
 .main-forecast {
+  display: inline-block;
   height: 100%;
   width: 50%;
   border: 2px solid #093f68;
   border-radius: 10px;
   font-family: "Bai Jamjuree", sans-serif;
-  font-size: 25px;
+  font-size: 20px;
 }
 .main-forecast div {
   text-align: center;
   color: #093f68;
-  margin-top: 15px;
+  margin-top: 7px;
 }
 .current-city {
   font-family: "Fredoka One", cursive;
-  font-size: 35px;
+  font-size: 30px;
+}
+.current-date {
+  font-size: 16px;
 }
 .temperature {
   display: flex;
   justify-content: center;
+  font-size: 28px;
 }
 .temperature-value {
   display: inline-block;
+  font-weight: bold;
 }
 .temperature-degrees {
   display: inline-block;
+  font-weight: bold;
 }
 .convert-temperature {
   display: inline-block;
-  width: 18%;
   font-weight: bold;
   margin-left: 15px;
-  margin-top: 15px;
+  margin-top: 7px;
+}
+.icon {
+  display: inline-block;
+  width: 200px;
+}
+#main-icon {
+  margin-bottom: 60px;
+  margin-left: 60px;
+  vertical-align: unset;
 }
 .cards-container {
   width: 80% !important;
@@ -102,7 +117,7 @@ h2 {
   margin-bottom: 50px !important;
 }
 .day-card {
-  height: 240px;
+  height: 180px;
   border: #093f68 2px solid;
   border-radius: 10px;
 }

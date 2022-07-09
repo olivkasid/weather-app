@@ -60,29 +60,29 @@ function titleCase(str) {
 }
 console.log(titleCase("DKJfcdjd jdvjvd EEJEJJE cdcm"));
 
-function getDay(currentDate) {
-  let days = [
-    "Sunday",
-    "Monday",
-    "Tuesday",
-    "Wednesday",
-    "Thursday",
-    "Friday",
-    "Saturday",
-  ];
-  let day = currentDate.getDay();
-  return days[day];
-}
-let now = new Date();
-let currentDay = getDay(now);
-let currentHours = now.getHours();
-let currentMinutes = now.getMinutes();
-let date = document.querySelector(".current-date");
-if (currentMinutes < 10) {
-  date.innerHTML = `${currentDay} ${currentHours}:0${currentMinutes}`;
-} else {
-  date.innerHTML = `${currentDay} ${currentHours}:${currentMinutes}`;
-}
+// function getDay(currentDate) {
+//   let days = [
+//     "Sunday",
+//     "Monday",
+//     "Tuesday",
+//     "Wednesday",
+//     "Thursday",
+//     "Friday",
+//     "Saturday",
+//   ];
+//   let day = currentDate.getDay();
+//   return days[day];
+// }
+// let now = new Date();
+// let currentDay = getDay(now);
+// let currentHours = now.getHours();
+// let currentMinutes = now.getMinutes();
+// let date = document.querySelector(".current-date");
+// if (currentMinutes < 10) {
+//   date.innerHTML = `${currentDay} ${currentHours}:0${currentMinutes}`;
+// } else {
+//   date.innerHTML = `${currentDay} ${currentHours}:${currentMinutes}`;
+// }
 
 function search(event) {
   event.preventDefault();
@@ -98,6 +98,29 @@ function search(event) {
   }
 }
 
+function formatDate(timestamp) {
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  let date = new Date(timestamp);
+  let hours = date.getHours();
+  let minutes = date.getMinutes();
+  let day = date.getDay();
+  if (hours < 10) {
+    hours = `0${hours}`;
+  }
+  if (minutes < 10) {
+    minutes = `0${minutes}`;
+  }
+  return `${days[day]} ${hours}:${minutes}`;
+}
+
 function getTemp(cityName) {
   let apiKey = "9772c374ca9f7d4036d601b4a27496d0";
   let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${apiKey}&units=metric`;
@@ -105,11 +128,26 @@ function getTemp(cityName) {
 }
 
 function displayTemp(response) {
-  let temperature = Math.round(response.data.main.temp);
-  let temp = document.querySelector(".temperature-value");
-  temp.innerHTML = temperature;
+  console.log(response.data);
+  let tempElement = document.querySelector(".temperature-value");
+  let weatherElement = document.querySelector("#current-weather");
+  let humidityElement = document.querySelector("#current-humidity");
+  let windElement = document.querySelector("#current-wind");
+  let timeElement = document.querySelector("#date");
+  let iconElement = document.querySelector("#main-icon");
+
+  tempElement.innerHTML = Math.round(response.data.main.temp);
+  weatherElement.innerHTML = titleCase(response.data.weather[0].description);
+  humidityElement.innerHTML = response.data.main.humidity;
+  windElement.innerHTML = response.data.wind.speed;
+  timeElement.innerHTML = formatDate(response.data.dt * 1000);
+  iconElement.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
 }
 
+getTemp("Milan");
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", search);
 
