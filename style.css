@@ -8,9 +8,7 @@ h2 {
   font-size: 12px !important;
 }
 .search-field {
-  background-color: #a8efff;
   padding: 10px;
-  border-bottom: #093f68 2px solid;
 }
 #search {
   display: inline-block;
@@ -57,7 +55,7 @@ h2 {
 .main {
   margin: 15px auto;
   width: 60%;
-  height: 280px;
+  height: 290px;
   background-size: 300px;
   background-repeat: no-repeat;
   background-position: right center;
@@ -65,7 +63,7 @@ h2 {
 .main-forecast {
   display: inline-block;
   height: 100%;
-  width: 50%;
+  width: 71%;
   border: 2px solid #093f68;
   border-radius: 10px;
   font-family: "Bai Jamjuree", sans-serif;
@@ -91,25 +89,34 @@ h2 {
 .temperature-value {
   display: inline-block;
   font-weight: bold;
+  font-size: 58px;
 }
 .temperature-degrees {
   display: inline-block;
   font-weight: bold;
 }
 .convert-temperature {
+  text-decoration: none;
   display: inline-block;
   font-weight: bold;
-  margin-left: 15px;
   margin-top: 7px;
 }
 .icon {
   display: inline-block;
-  width: 200px;
 }
 #main-icon {
-  margin-bottom: 60px;
-  margin-left: 60px;
   vertical-align: unset;
+}
+#current-weather {
+  margin-top: -35px;
+}
+.active {
+  color: #093f68;
+  cursor: default;
+}
+.active:hover {
+  text-decoration: none;
+  color: #093f68;
 }
 .cards-container {
   width: 80% !important;

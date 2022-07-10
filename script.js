@@ -1,55 +1,3 @@
-// let weather = {
-//   paris: {
-//     temp: 19.7,
-//     humidity: 80,
-//   },
-//   tokyo: {
-//     temp: 17.3,
-//     humidity: 50,
-//   },
-//   lisbon: {
-//     temp: 30.2,
-//     humidity: 20,
-//   },
-//   "san francisco": {
-//     temp: 20.9,
-//     humidity: 100,
-//   },
-//   moscow: {
-//     temp: -5,
-//     humidity: 20,
-//   },
-// };
-
-// function capitalizeFirstLetter(string) {
-//   return string.charAt(0).toUpperCase() + string.slice(1);
-// }
-
-// let city = prompt("Enter a city, please");
-// city = city.toLowerCase();
-// city = city.trim();
-
-// i = 0;
-// for (const name in weather) {
-//   if (name == city) {
-//     alert(
-//       `It is currently ${Math.round(
-//         weather[name].temp
-//       )}°C in ${capitalizeFirstLetter(city)} with a humidity of ${Math.round(
-//         weather[name].humidity
-//       )}%`
-//     );
-//     i = 1;
-//     break;
-//   }
-// }
-
-// if (i == 0) {
-//   alert(
-//     "Sorry, we don't know the weather for this city, try going to https://www.google.com/search?q=weather+" +
-//       city
-//   );
-
 function titleCase(str) {
   var splitStr = str.toLowerCase().split(" ");
   for (var i = 0; i < splitStr.length; i++) {
@@ -60,30 +8,6 @@ function titleCase(str) {
 }
 console.log(titleCase("DKJfcdjd jdvjvd EEJEJJE cdcm"));
 
-// function getDay(currentDate) {
-//   let days = [
-//     "Sunday",
-//     "Monday",
-//     "Tuesday",
-//     "Wednesday",
-//     "Thursday",
-//     "Friday",
-//     "Saturday",
-//   ];
-//   let day = currentDate.getDay();
-//   return days[day];
-// }
-// let now = new Date();
-// let currentDay = getDay(now);
-// let currentHours = now.getHours();
-// let currentMinutes = now.getMinutes();
-// let date = document.querySelector(".current-date");
-// if (currentMinutes < 10) {
-//   date.innerHTML = `${currentDay} ${currentHours}:0${currentMinutes}`;
-// } else {
-//   date.innerHTML = `${currentDay} ${currentHours}:${currentMinutes}`;
-// }
-
 function search(event) {
   event.preventDefault();
   let searchInput = document.querySelector("#search");
@@ -93,6 +17,7 @@ function search(event) {
     searchInput = titleCase(searchInput);
     city.innerHTML = searchInput;
     getTemp(searchInput);
+    searchInput.value = "";
   } else {
     city.innerHTML = `Please, enter a city`;
   }
@@ -136,7 +61,9 @@ function displayTemp(response) {
   let timeElement = document.querySelector("#date");
   let iconElement = document.querySelector("#main-icon");
 
-  tempElement.innerHTML = Math.round(response.data.main.temp);
+  celsiusTemperature = response.data.main.temp;
+
+  tempElement.innerHTML = Math.round(celsiusTemperature);
   weatherElement.innerHTML = titleCase(response.data.weather[0].description);
   humidityElement.innerHTML = response.data.main.humidity;
   windElement.innerHTML = response.data.wind.speed;
@@ -147,10 +74,35 @@ function displayTemp(response) {
   );
 }
 
-getTemp("Milan");
+function displayFtemperature(event) {
+  event.preventDefault();
+  celsiusLink.classList.remove("active");
+  fahrenheitLink.classList.add("active");
+  let tempElement = document.querySelector(".temperature-value");
+  let fahrenheitTemperature = celsiusTemperature * 1.8 + 32;
+  tempElement.innerHTML = Math.round(fahrenheitTemperature);
+}
+
+function displayCtemperature(event) {
+  event.preventDefault();
+  fahrenheitLink.classList.remove("active");
+  celsiusLink.classList.add("active");
+  let tempElement = document.querySelector(".temperature-value");
+  tempElement.innerHTML = Math.round(celsiusTemperature);
+}
+
+let celsiusTemperature = null;
+
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", search);
 
+let fahrenheitLink = document.querySelector("#fahrenheit-link");
+fahrenheitLink.addEventListener("click", displayFtemperature);
+
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", displayCtemperature);
+
+getTemp("Milan");
 //CONVERTER
 // function convert() {
 //   let value = document.querySelector(".temperature-value");
@@ -166,5 +118,3 @@ searchForm.addEventListener("submit", search);
 //     degrees.innerHTML = "°C";
 //   }
 // }
-// let converter = document.querySelector(".convert-temperature");
-// converter.addEventListener("click", convert);

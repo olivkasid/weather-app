@@ -25,7 +25,6 @@
   <body>
     <form id="search-form">
       <div class="search-field">
-        <i class="fa-solid fa-magnifying-glass search-icon"></i>
         <input type="text" placeholder="Enter a city" id="search" />
         <input type="submit" id="search-submit" value="Search" />
       </div>
@@ -35,9 +34,16 @@
         <div class="current-city">Milan</div>
         <div class="current-date">Last updated at: <span id="date"></span></div>
         <div class="temperature">
+          <div class="icon">
+            <img src="./images/Sun.svg" alt="Sun" id="main-icon" />
+          </div>
           <div class="temperature-value"></div>
-          <div class="temperature-degrees">°C</div>
-          <a href="#" class="convert-temperature">Convert</a>
+          <span class="temperature-degrees">
+            <a href="#" class="convert-temperature active" id="celsius-link"
+              >°C </a
+            ><span> | </span>
+            <a href="#" class="convert-temperature" id="fahrenheit-link">°F</a>
+          </span>
         </div>
         <div id="current-weather"></div>
         <div class="current-humidity">
@@ -46,9 +52,6 @@
         <div class="current-wind">
           Wind: <span id="current-wind"></span> km/h
         </div>
-      </div>
-      <div class="icon">
-        <img src="./images/Sun.svg" alt="Sun" id="main-icon" />
       </div>
     </div>
 
