@@ -124,7 +124,7 @@ h2 {
   margin-bottom: 50px !important;
 }
 .day-card {
-  min-height: 145px;
+  min-height: 115px;
   max-height: 220px;
   border: #093f68 2px solid;
   border-radius: 10px;
@@ -132,6 +132,7 @@ h2 {
 .card-img {
   width: 50px !important;
   margin: 0 auto;
+  display: block;
 }
 .day-card div {
   text-align: center;
