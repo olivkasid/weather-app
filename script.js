@@ -6,7 +6,6 @@ function titleCase(str) {
   }
   return splitStr.join(" ");
 }
-console.log(titleCase("DKJfcdjd jdvjvd EEJEJJE cdcm"));
 
 function search(event) {
   event.preventDefault();
@@ -80,8 +79,14 @@ function getTemp(cityName) {
   axios.get(apiUrl).then(displayTemp);
 }
 
+function getForecast(coordinates) {
+  let apiKey = "9772c374ca9f7d4036d601b4a27496d0";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&exclude={part}&appid=${apiKey}&units={metric}`;
+  console.log(apiUrl);
+  axios.get(apiUrl).then(displayForecast);
+}
+
 function displayTemp(response) {
-  console.log(response.data);
   let tempElement = document.querySelector(".temperature-value");
   let weatherElement = document.querySelector("#current-weather");
   let humidityElement = document.querySelector("#current-humidity");
@@ -100,6 +105,8 @@ function displayTemp(response) {
     "src",
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
+
+  getForecast(response.data.coord);
 }
 
 function displayFtemperature(event) {
