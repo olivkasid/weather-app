@@ -63,7 +63,7 @@ h2 {
 .main-forecast {
   display: inline-block;
   height: 100%;
-  width: 71%;
+  width: 100%;
   border: 2px solid #093f68;
   border-radius: 10px;
   font-family: "Bai Jamjuree", sans-serif;
@@ -119,17 +119,18 @@ h2 {
   color: #093f68;
 }
 .cards-container {
-  width: 80% !important;
+  width: 60% !important;
   padding: 0 !important;
   margin-bottom: 50px !important;
 }
 .day-card {
-  height: 225px;
+  min-height: 145px;
+  max-height: 220px;
   border: #093f68 2px solid;
   border-radius: 10px;
 }
 .card-img {
-  width: 80%;
+  width: 50px !important;
   margin: 0 auto;
 }
 .day-card div {
@@ -137,10 +138,16 @@ h2 {
   color: #093f68;
 }
 .day {
-  font-family: "Fredoka One", cursive;
-  font-size: 20px;
+  font-size: 18px;
+  font-weight: bold;
   text-align: center;
   color: #093f68;
+}
+.day-temperature {
+  padding-bottom: 10px;
+}
+.max-temperature {
+  font-weight: bold;
 }
 .git-hub {
   display: inline-block;
