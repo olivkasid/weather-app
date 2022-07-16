@@ -59,7 +59,6 @@ function displayForecast(response) {
   let forecastHTML = `<div class="row">`;
   forecast.forEach(function (forecastDay, index) {
     if (index < 6) {
-      console.log(forecastDay.weather[0].icon);
       forecastHTML =
         forecastHTML +
         `    
@@ -124,33 +123,10 @@ function displayTemp(response) {
   getForecast(response.data.coord);
 }
 
-function displayFtemperature(event) {
-  event.preventDefault();
-  celsiusLink.classList.remove("active");
-  fahrenheitLink.classList.add("active");
-  let tempElement = document.querySelector(".temperature-value");
-  let fahrenheitTemperature = celsiusTemperature * 1.8 + 32;
-  tempElement.innerHTML = Math.round(fahrenheitTemperature);
-}
-
-function displayCtemperature(event) {
-  event.preventDefault();
-  fahrenheitLink.classList.remove("active");
-  celsiusLink.classList.add("active");
-  let tempElement = document.querySelector(".temperature-value");
-  tempElement.innerHTML = Math.round(celsiusTemperature);
-}
-
 let celsiusTemperature = null;
 
 let searchForm = document.querySelector("#search-form");
 searchForm.addEventListener("submit", search);
-
-let fahrenheitLink = document.querySelector("#fahrenheit-link");
-fahrenheitLink.addEventListener("click", displayFtemperature);
-
-let celsiusLink = document.querySelector("#celsius-link");
-celsiusLink.addEventListener("click", displayCtemperature);
 
 getTemp("Milan");
 displayForecast();
